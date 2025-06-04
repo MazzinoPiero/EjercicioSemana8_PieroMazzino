@@ -542,6 +542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGameButton: {fileID: 1883677843}
+  showRankingsButton: {fileID: 316132764}
+  showTrophiesButton: {fileID: 1666842901}
   gameSceneName: GameScene
 --- !u!4 &377253681
 Transform:
