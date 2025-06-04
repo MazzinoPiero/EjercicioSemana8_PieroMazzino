@@ -155,6 +155,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 25
   attackSpeed: 2
+  enableSingleShot: 0
+  bulletPrefab: {fileID: 2224726401294451898, guid: 8241e4866eaef4006b8ff36aee6adfdb, type: 3}
+  firePoint: {fileID: 0}
+  bulletSpeed: 8
+  singleShotInterval: 3
+  enableDoubleShot: 0
+  doubleShotInterval: 5
+  timeBetweenBurstShots: 0.3
+  enableSpeedBoost: 0
+  speedBoostDuration: 4
+  speedBoostInterval: 8
+  speedMultiplier: 2
 --- !u!114 &5829300876080547899
 MonoBehaviour:
   m_ObjectHideFlags: 0
