@@ -24,7 +24,6 @@ public class PlayerHealth : Health
 
     protected override void Die()
     {
-
         if (RoundManager.Instance != null && GameDataManager.Instance != null)
         {
             GameDataManager.Instance.SaveGameData(
@@ -32,6 +31,19 @@ public class PlayerHealth : Health
                 RoundManager.Instance.GetCurrentRound(),
                 RoundManager.Instance.GetTotalEnemiesKilled()
             );
+        }
+
+        if (LeaderboardManager.Instance != null && RoundManager.Instance != null)
+        {
+            int finalRound = RoundManager.Instance.GetCurrentRound();
+            int totalKills = RoundManager.Instance.GetTotalEnemiesKilled();
+            
+            Debug.Log($"Enviando estadísticas finales - Ronda: {finalRound}, Kills: {totalKills}");
+            LeaderboardManager.Instance.SubmitFinalStats(finalRound, totalKills);
+        }
+        else
+        {
+            Debug.LogWarning("LeaderboardManager no encontrado. No se pueden enviar estadísticas a GameJolt.");
         }
 
 
