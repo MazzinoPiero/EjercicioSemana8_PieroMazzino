@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4285043269866032976}
   - component: {fileID: 55349523616752760}
   - component: {fileID: 3645783006148957407}
+  - component: {fileID: -772831287607478410}
   m_Layer: 0
   m_Name: Cylinder (2)
   m_TagString: Untagged
@@ -110,3 +111,19 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &-772831287607478410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810165016534903892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 727cd1ccb9a194f5183af8d52222df88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Malla
+  itemID: 2
+  rotateObject: 1
+  rotationSpeed: 50
