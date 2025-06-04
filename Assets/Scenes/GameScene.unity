@@ -1124,6 +1124,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007463586}
   m_CullTransparentMesh: 1
+--- !u!1 &1040633688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1040633690}
+  - component: {fileID: 1040633689}
+  m_Layer: 0
+  m_Name: CollectibleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1040633689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040633688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 068142175353047d795bf7eac798a85a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collectiblePrefabs:
+  - {fileID: 6605882357372680630, guid: d1f5ac3bd8ff54aa5b9336b42f55bd1f, type: 3}
+  - {fileID: 6850024762488248043, guid: 098b9913f2adc4001b0919ae674ab7ec, type: 3}
+  - {fileID: 7810165016534903892, guid: 14305329aa5584efebde4d75c7e1f566, type: 3}
+  spawnPoint: {fileID: 1040633690}
+  spawnEveryRound: 1
+  specificRounds: 
+--- !u!4 &1040633690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040633688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 0.63, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1214485316
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,3 +2078,4 @@ SceneRoots:
   - {fileID: 1450021471}
   - {fileID: 713697665}
   - {fileID: 1829077420}
+  - {fileID: 1040633690}
