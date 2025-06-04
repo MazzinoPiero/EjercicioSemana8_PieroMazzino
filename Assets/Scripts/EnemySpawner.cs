@@ -7,13 +7,26 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 2f;
     public int maxEnemiesPerWave = 5;
     
+    [Header("Control de Enemigos por Ronda")]
+    public int extraEnemiesMargin = 3; 
+    
     private bool isSpawning = false;
     private int currentWaveSize = 1;
+    private int enemiesSpawnedThisRound = 0;
+    private int maxEnemiesThisRound = 0;
 
     public void StartSpawning()
     {
         if (!isSpawning)
         {
+
+            if (RoundManager.Instance != null)
+            {
+                int enemiesRequired = RoundManager.Instance.GetEnemiesRequiredThisRound();
+                maxEnemiesThisRound = enemiesRequired + Mathf.Max(1, extraEnemiesMargin);
+            }
+            
+            enemiesSpawnedThisRound = 0;
             isSpawning = true;
             InvokeRepeating("SpawnWave", 0f, spawnInterval);
         }
@@ -23,11 +36,19 @@ public class EnemySpawner : MonoBehaviour
     {
         isSpawning = false;
         CancelInvoke("SpawnWave");
+        currentWaveSize = 1; 
     }
 
     void SpawnWave()
     {
-        for (int i = 0; i < currentWaveSize; i++)
+        if (enemiesSpawnedThisRound >= maxEnemiesThisRound)
+        {
+            return;
+        }
+
+        int enemiesToSpawn = Mathf.Min(currentWaveSize, maxEnemiesThisRound - enemiesSpawnedThisRound);
+        
+        for (int i = 0; i < enemiesToSpawn; i++)
         {
             SpawnEnemy();
         }
@@ -48,6 +69,8 @@ public class EnemySpawner : MonoBehaviour
         spawnPos.y = transform.position.y;
 
         GameObject enemy = Instantiate(enemyPrefab, spawnPos, transform.rotation);
+
+        enemiesSpawnedThisRound++;
 
         if (RoundManager.Instance != null)
         {

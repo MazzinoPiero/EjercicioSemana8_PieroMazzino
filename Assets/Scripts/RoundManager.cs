@@ -14,6 +14,8 @@ public class RoundManager : MonoBehaviour
     private float gameStartTime;
     private float totalGameTime;
 
+    private bool roundCompleting = false;
+    
     public static RoundManager Instance;
 
     void Awake()
@@ -32,7 +34,7 @@ public class RoundManager : MonoBehaviour
     {
         totalGameTime = Time.time - gameStartTime;
 
-        if (enemiesKilledThisRound >= currentRequirement && aliveEnemies <= 0)
+        if (!roundCompleting && enemiesKilledThisRound >= currentRequirement && aliveEnemies <= 0)
         {
             if (BossSpawner.Instance == null || !BossSpawner.Instance.IsBossActive())
             {
@@ -43,10 +45,10 @@ public class RoundManager : MonoBehaviour
 
     void StartRound()
     {
+        roundCompleting = false; 
         enemiesKilledThisRound = 0;
         currentRequirement = enemiesRequiredPerRound + (enemiesIncrease * (currentRound - 1));
-        
-        // Iniciar spawning de enemigos
+
         EnemySpawner spawner = FindFirstObjectByType<EnemySpawner>();
         if (spawner != null)
         {
@@ -56,6 +58,9 @@ public class RoundManager : MonoBehaviour
 
     void CompleteRound()
     {
+        if (roundCompleting) return;
+        
+        roundCompleting = true;
         currentRound++;
 
         EnemySpawner spawner = FindFirstObjectByType<EnemySpawner>();
@@ -88,6 +93,11 @@ public class RoundManager : MonoBehaviour
     public int GetCurrentRound() { return currentRound; }
     public int GetTotalEnemiesKilled() { return totalEnemiesKilled; }
     public float GetTotalGameTime() { return totalGameTime; }
+    
+    public int GetEnemiesRequiredThisRound() 
+    { 
+        return currentRequirement; 
+    }
     
     public string GetFormattedGameTime()
     {
