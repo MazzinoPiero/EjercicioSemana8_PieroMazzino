@@ -25,6 +25,11 @@ public class BossHealth : EnemyHealth
 
         Instance = null;
 
+        if (TrophyManager.Instance != null)
+        {
+        TrophyManager.Instance.OnBossKilled();
+        }
+
         base.Die();
     }
 }

@@ -96,6 +96,11 @@ public class PlayerCollector : MonoBehaviour
         {
             specialObjectPanel.SetActive(false);
         }
+
+        if (TrophyManager.Instance != null)
+        {
+        TrophyManager.Instance.OnSpecialObjectActivated();
+        }
     }
 
     public int GetCollectedItemsCount()
