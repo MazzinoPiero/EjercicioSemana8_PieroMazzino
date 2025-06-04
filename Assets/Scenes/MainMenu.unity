@@ -690,6 +690,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 781915780}
+  - component: {fileID: 781915781}
   m_Layer: 0
   m_Name: TrophyManager
   m_TagString: Untagged
@@ -712,6 +713,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &781915781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781915779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c2c6224831c462d96c46eb29341883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  surviveFirstRoundTrophyID: 269785
+  firstKillTrophyID: 269786
+  killBossTrophyID: 269787
+  collectItemTrophyID: 269788
+  createSpecialObjectTrophyID: 269789
+  surviveFirstRoundUnlocked: 0
+  firstKillUnlocked: 0
+  killBossUnlocked: 0
+  collectItemUnlocked: 0
+  createSpecialObjectUnlocked: 0
 --- !u!1 &1156212443
 GameObject:
   m_ObjectHideFlags: 0
